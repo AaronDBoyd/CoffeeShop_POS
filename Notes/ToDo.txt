@@ -1,7 +1,7 @@
 To Do:
 - build out new check page.
   - ** use lifecycle function to update itemizedCheck as buttons are pressed
-  - add handleAddingNewCheck function in NewCheck to pass to buttons for 
+  - add handleAddingItemsToCheck function in NewCheck to pass to buttons for adding items to check
 
 - Build out components using basic local/shared state.
 - Build out HomeView.

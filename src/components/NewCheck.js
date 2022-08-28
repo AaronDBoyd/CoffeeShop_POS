@@ -5,13 +5,23 @@ import ItemButtons from './ItemButtons'
 
 function NewCheck(props) {
 
+  const [check, setCheck] = useState([])
 
+  const handleAddingItemsToCheck = ( item ) => {
+    const newCheck = check.concat(item);
+
+    setCheck({
+      check: newCheck
+    })
+
+    console.log(check.length);
+  }
 
   return (
     <React.Fragment>
       <div className='newCheck'>
         <ItemizedCheck />
-        <ItemButtons />
+        <ItemButtons onItemCreation={handleAddingItemsToCheck}/>
         {/* <br/> */}
         </div>
         <button>Send Order</button>

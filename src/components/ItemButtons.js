@@ -3,15 +3,22 @@ import React, { useState }  from 'react'
 
 function ItemButtons(props) {
 
+  const { onItemCreation } = props;
+
   const [sizeButtons, setSizeButtons] = useState(false);
 
-  const sizeButtonHandler = (btn) => {
+  const sizeButtonHandler = (size, drink = "coffee") => {
     setSizeButtons(prev => !prev);
-    testFunc(btn);
+    onItemCreation({
+      size: size,
+      drink: drink
+    })
   }
 
   const coffeeButtonHandler = (btn) => {
     setSizeButtons(prev => !prev);
+
+
     testFunc(btn);
   }
 
