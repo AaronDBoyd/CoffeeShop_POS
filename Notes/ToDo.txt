@@ -1,10 +1,12 @@
 To Do:
-- Create diagram.
+- build out new check page.
+  - ** use lifecycle function to update itemizedCheck as buttons are pressed
+
 - Build out components using basic local/shared state.
 - Build out HomeView.
 - Build out OpenChecks list.
-- connect button to change to checks list.
-- build out new check page. 
+
+
 
 
 - Implement firebase.
@@ -12,4 +14,6 @@ To Do:
 
 
 
+-[ x ] Connect button to change to checks list.
+-[ x ] Create v1diagram.
 
