@@ -13,7 +13,8 @@
 #### ---Sunday August 28th---
 * _12:30am to 1:20am - Pass dummy checks through OpenChecksList to display on ChecksOpen component | 50 mins_
 * _1:30am to 3:10am - Set Up NewCheck page format and some styling. | 1 hr 40mins_ 
+* _3:10am to 4:00am - Set up ItemButtons to toggle between size and coffee. | 50 mins_
 
-### Time: 2 hours 30 mins
+### Time: 3 hours 20 mins
 
-## Total Time: 8 hours 15 mins
+## Total Time: 9 hours 5 mins

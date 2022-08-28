@@ -78,7 +78,7 @@ class CheckControl extends Component {
 
   render() {
     let currentlyVisibleState = null;
-    let buttonText = null;
+    // let buttonText = null;
 
     if (this.state.newCheckVisible) {
       currentlyVisibleState = <NewCheck />;

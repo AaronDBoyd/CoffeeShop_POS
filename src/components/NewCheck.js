@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import PropTypes from 'prop-types'
 import ItemizedCheck from './ItemizedCheck'
 import ItemButtons from './ItemButtons'
 
 function NewCheck(props) {
+
+
+
   return (
     <React.Fragment>
       <div className='newCheck'>
