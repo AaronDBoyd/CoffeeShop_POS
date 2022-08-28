@@ -8,3 +8,5 @@ https://medium.com/hackernoon/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3
 
 https://www.youtube.com/watch?v=S8yn3-WpVV8
 - React Spring tutorial for animating components.
+
+?? Can I use the use the same logic from App.css to make coffee Shop logo spin??
