@@ -10,6 +10,12 @@ class CheckControl extends Component {
     };
   }
 
+  handleClick = () => {
+    this.setState(prev => ({
+      newCheckVisible: !prev.newCheckVisible
+    }))
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
