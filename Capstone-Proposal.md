@@ -26,10 +26,10 @@
 * Let different users sign in to see/modify checks that belong to them.
 * Add Admin privileges to to control things like discounts.
 * Allow users to "clock-in" and "clock-out" if their shift.
-* Create component to view statistics such as how many drinks have been sold.
+* Create component to view statistics such as how many drinks have been sold and revenue.
 * Allow users to split checks.
 * Allow users to transfer checks.
-* Create seating chart to assign checks to tables. 
+* Create seating chart to assign checks to tables.
 
 ## What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
 

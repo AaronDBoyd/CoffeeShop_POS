@@ -1,0 +1,11 @@
+To Do:
+- Create diagram.
+- Build out components using basic local/shared state.
+- Build out HomeView.
+- Build out OpenChecks list.
+- connect button to change to checks list.
+- build out new check page. 
+
+
+- Implement firebase.
+- Find Authentication software.
