@@ -1,0 +1,7 @@
+https://medium.com/hackernoon/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3bf
+- Introduces methods such as:
+-- CSS
+-- ReactTransitionGroup
+-- React-Animations
+-- React-reveal
+-- TweenOne and animation in Ant Design
