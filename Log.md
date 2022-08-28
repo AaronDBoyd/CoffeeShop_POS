@@ -11,7 +11,8 @@
 ### Time: 5 hours 45 mins
 
 #### ---Sunday August 28th---
+* _12:30am to 1:20am - Pass dummy checks through OpenChecksList to display on ChecksOpen component | 50 mins_
 
+### Time: 50 mins
 
-
-## Total Time: 5 hours 45 mins
+## Total Time: 6 hours 35 mins
