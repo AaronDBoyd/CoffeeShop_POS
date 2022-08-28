@@ -5,3 +5,6 @@ https://medium.com/hackernoon/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3
 -- React-Animations
 -- React-reveal
 -- TweenOne and animation in Ant Design
+
+https://www.youtube.com/watch?v=S8yn3-WpVV8
+- React Spring tutorial for animating components.
