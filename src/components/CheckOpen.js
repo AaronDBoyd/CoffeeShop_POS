@@ -4,7 +4,7 @@ import React from "react";
 function CheckOpen(props) {
   return (
     <React.Fragment>
-      <div>
+      <div className="checkOpen">
         <h3>Check #{props.id}</h3>
         <h4>${props.totalPrice}</h4>
         <h4>{props.timeOpen}</h4>
