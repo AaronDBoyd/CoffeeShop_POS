@@ -21,7 +21,8 @@
 #### ---Sunday September 11th---
 * _11:00pm to 12:00am - Add items from ItemButtons.js to check on NewCheck. | 1 hr_
 * _12:00am to 1:00am - Display check and totalPrice on ItemizedCheck. | 1 hr_
+* _1:00am to 1:30am - create check and add properties on NewCheck send button  | 30 mins_
 
-### Time: 2 hours
+### Time: 2 hours 30 mins
 
-## Total Time: 11 hours 45 mins
+## Total Time: 12 hours 15 mins
