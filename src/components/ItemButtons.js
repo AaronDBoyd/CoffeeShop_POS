@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 // import PropTypes from 'prop-types'
-// import { v4 } from 'uuid';
+import { v4 } from 'uuid';
 
 function ItemButtons(props) {
 
@@ -14,7 +14,8 @@ function ItemButtons(props) {
     onItemCreation({
       size: size,
       drink: drinkName,
-      price: price
+      price: price,
+      key: v4(),
     })
 
     setDrinkName(null);

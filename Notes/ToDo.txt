@@ -1,5 +1,7 @@
 To Do:
 - build out new check page.
+  
+  - Add check to mainCheckList 
   - build function in ItemButtons to pass a created item into NewCheck. Watch video!
   - look at firebase lessons to consider how to save checks to mainCheckList in CheckComponent 
   - ** useEffect to update itemizedCheck as buttons are pressed
@@ -8,6 +10,7 @@ To Do:
 - Build out components using basic local/shared state.
 - Build out HomeView.
 - Build out OpenChecks list.
+  
 
 
 

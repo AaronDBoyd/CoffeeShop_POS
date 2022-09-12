@@ -5,24 +5,33 @@ import ItemButtons from './ItemButtons'
 
 function NewCheck(props) {
 
-  const [check, setCheck] = useState([])
+  const [check, setCheck] = useState([]); //How do I add keys to each check for items, time, price, id, open??
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleAddingItemsToCheck = ( item ) => {
-    setCheck(prev => [...prev, item]);
+    setCheck(prev => [...prev, item]); 
+
+    setTotalPrice(totalPrice + item.price);
   }
 
   useEffect(() => {
     console.log(check);
-  }, [check])
+    console.log(totalPrice);
+  }, [check, totalPrice])
+
+  const handleSendingOrder = () => {
+    // gather check properties and send it to mainCheckList
+    console.log("SEND")
+  }
 
   return (
     <React.Fragment>
       <div className='newCheck'>
-        <ItemizedCheck />
+        <ItemizedCheck check={check} totalPrice={totalPrice} />
         <ItemButtons onItemCreation={handleAddingItemsToCheck}/>
         {/* <br/> */}
         </div>
-        <button>Send Order</button>
+        <button onClick={() => handleSendingOrder()}>Send Order</button>
       {/* </div> */}
     </React.Fragment>
   )
