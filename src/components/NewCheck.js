@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import PropTypes from 'prop-types'
 import ItemizedCheck from './ItemizedCheck'
 import ItemButtons from './ItemButtons'
@@ -8,14 +8,12 @@ function NewCheck(props) {
   const [check, setCheck] = useState([])
 
   const handleAddingItemsToCheck = ( item ) => {
-    const newCheck = check.concat(item);
-
-    setCheck({
-      check: newCheck
-    })
-
-    console.log(check.length);
+    setCheck(prev => [...prev, item]);
   }
+
+  useEffect(() => {
+    console.log(check);
+  }, [check])
 
   return (
     <React.Fragment>

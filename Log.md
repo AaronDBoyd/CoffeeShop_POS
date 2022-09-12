@@ -18,4 +18,9 @@
 
 ### Time: 4 hours 0 mins
 
-## Total Time: 9 hours 45 mins
+#### ---Sunday September 11th---
+* _11:00pm to 12:00am - Add items from ItemButtons.js to check on NewCheck. | 1 hr_
+
+### Time: 1 hour
+
+## Total Time: 10 hours 45 mins

@@ -1,39 +1,41 @@
 import React, { useState }  from 'react'
 // import PropTypes from 'prop-types'
+// import { v4 } from 'uuid';
 
 function ItemButtons(props) {
 
   const { onItemCreation } = props;
 
   const [sizeButtons, setSizeButtons] = useState(false);
+  const [drinkName, setDrinkName] = useState(null);
 
-  const sizeButtonHandler = (size, drink = "coffee") => {
+  const sizeButtonHandler = (size, price) => { /* How Do I combine drink and size into one function to create an item?*/
     setSizeButtons(prev => !prev);
     onItemCreation({
       size: size,
-      drink: drink
+      drink: drinkName,
+      price: price
     })
+
+    setDrinkName(null);
   }
 
   const coffeeButtonHandler = (btn) => {
     setSizeButtons(prev => !prev);
 
-
-    testFunc(btn);
+    setDrinkName(btn);
+    console.log(btn);
   }
 
-  const testFunc =(str) => {
-    console.log(str)
-  }
 
-  let visibleButtons = null;
+  let visibleButtons = null; /* Should I useState? */
 
   if (sizeButtons) {
     visibleButtons = (
       <div className='itemButtons'>
-        <button onClick={() => sizeButtonHandler("small")}>Small</button>
-        <button onClick={() => sizeButtonHandler("medium")}>Medium</button>
-        <button onClick={() => sizeButtonHandler("large")}>Large</button>
+        <button onClick={() => sizeButtonHandler("small", 2)}>Small</button>
+        <button onClick={() => sizeButtonHandler("medium", 4)}>Medium</button>
+        <button onClick={() => sizeButtonHandler("large", 6)}>Large</button>
       </div>);
     } else {
       visibleButtons = (

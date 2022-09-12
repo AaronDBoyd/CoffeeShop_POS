@@ -1,6 +1,8 @@
 To Do:
 - build out new check page.
-  - ** use lifecycle function to update itemizedCheck as buttons are pressed
+  - build function in ItemButtons to pass a created item into NewCheck. Watch video!
+  - look at firebase lessons to consider how to save checks to mainCheckList in CheckComponent 
+  - ** useEffect to update itemizedCheck as buttons are pressed
   - add handleAddingItemsToCheck function in NewCheck to pass to buttons for adding items to check
 
 - Build out components using basic local/shared state.

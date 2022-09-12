@@ -9,7 +9,7 @@ class CheckControl extends Component {
     this.state = {
       newCheckVisible: false,
       openChecksVisible: false,
-      mainCheckList: [
+      mainCheckList: [ /* change to an object to prep for firestore */
         {
           id: 1,
           timeOpen: "Sun Aug 28 2022",
