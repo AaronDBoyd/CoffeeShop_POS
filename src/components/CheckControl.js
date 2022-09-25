@@ -1,106 +1,95 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import HomeView from "./HomeView";
 import NewCheck from "./NewCheck";
 import OpenChecksList from "./OpenChecksList";
 
-class CheckControl extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      newCheckVisible: false,
-      openChecksVisible: false,
-      mainCheckList: [ /* change to an object to prep for firestore */
+function CheckControl() {
+  const [newCheckVisible, setNewCheckVisible] = useState(false);
+  const [openChecksVisible, setOpenCheckVisible] = useState(false);
+  const [mainCheckList, setMainCheckList] = useState([
+    /* ??change to an object to prep for firestore?? */
+    {
+      id: 1,
+      timeOpen: "Sun Aug 28 2022",
+      open: true,
+      totalPrice: 5,
+      items: [
         {
-          id: 1,
-          timeOpen: "Sun Aug 28 2022",
-          open: true,
-          totalPrice: 5,
-          items: [
-            {
-              drink: "coffee",
-              size: "medium",
-              price: 2,
-            },
-            {
-              drink: "coffee",
-              size: "large",
-              price: 3,
-            },
-          ],
+          drink: "coffee",
+          size: "medium",
+          price: 2,
         },
         {
-          id: 2,
-          timeOpen: "Sun Aug 28 2022",
-          open: true,
-          totalPrice: 6,
-          items: [
-            {
-              drink: "coffee",
-              size: "medium",
-              price: 2,
-            },
-            {
-              drink: "coffee",
-              size: "large",
-              price: 3,
-            },
-            {
-              drink: "coffee",
-              size: "small",
-              price: 1,
-            },
-          ],
+          drink: "coffee",
+          size: "large",
+          price: 3,
         },
       ],
-    };
+    },
+    {
+      id: 2,
+      timeOpen: "Sun Aug 28 2022",
+      open: true,
+      totalPrice: 6,
+      items: [
+        {
+          drink: "coffee",
+          size: "medium",
+          price: 2,
+        },
+        {
+          drink: "coffee",
+          size: "large",
+          price: 3,
+        },
+        {
+          drink: "coffee",
+          size: "small",
+          price: 1,
+        },
+      ],
+    },
+  ]);
+
+  const handleHomeClick = () => {
+    setNewCheckVisible(false);
+    setOpenCheckVisible(false);
+  };
+
+  const handleNewClick = () => {
+    setNewCheckVisible(true);
+    setOpenCheckVisible(false);
+  };
+
+  const handleListClick = () => {
+    setNewCheckVisible(false);
+    setOpenCheckVisible(true);
+  };
+
+  
+  let currentlyVisibleState = null;
+  // let buttonText = null;
+
+  if (newCheckVisible) {
+    currentlyVisibleState = <NewCheck />;
+    // buttonText = "Home View";
+  } else if (openChecksVisible) {
+    currentlyVisibleState = <OpenChecksList checkList={mainCheckList} />;
+  } else {
+    currentlyVisibleState = <HomeView />;
+    // buttonText = "New Check";
   }
 
-  handleHomeClick = () => {
-    this.setState((prev) => ({
-      newCheckVisible: false,
-      openChecksVisible: false,
-    }));
-  };
-
-  handleNewClick = () => {
-    this.setState((prev) => ({
-      newCheckVisible: true,
-      openChecksVisible: false,
-    }));
-  };
-
-  handleListClick = () => {
-    this.setState((prev) => ({
-      newCheckVisible: false,
-      openChecksVisible: true,
-    }));
-  };
-
-  render() {
-    let currentlyVisibleState = null;
-    // let buttonText = null;
-
-    if (this.state.newCheckVisible) {
-      currentlyVisibleState = <NewCheck />;
-      // buttonText = "Home View";
-    } else if (this.state.openChecksVisible) {
-      currentlyVisibleState = (
-        <OpenChecksList checkList={this.state.mainCheckList} />
-      );
-    } else {
-      currentlyVisibleState = <HomeView />;
-      // buttonText = "New Check";
-    }
-
-    return (
-      <React.Fragment>
-        <button onClick={this.handleHomeClick}>Home</button>
-        <button onClick={this.handleNewClick}>New Check</button>
-        <button onClick={this.handleListClick}>OpenChecksList</button>
-        {currentlyVisibleState}
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <button onClick={handleHomeClick}>Home</button>
+      <button onClick={handleNewClick}>New Check</button>
+      <button onClick={handleListClick}>OpenChecksList</button>
+      {currentlyVisibleState}
+    </React.Fragment>
+  );
 }
 
 export default CheckControl;
+
+

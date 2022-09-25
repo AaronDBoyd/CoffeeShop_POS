@@ -25,4 +25,9 @@
 
 ### Time: 2 hours 30 mins
 
+#### ---Sunday Septmeber 25th---
+* _1:40pm to 2:20pm - Convert CheckControl to functional component. | 40 mins_
+
+// ### Time
+
 ## Total Time: 12 hours 15 mins
