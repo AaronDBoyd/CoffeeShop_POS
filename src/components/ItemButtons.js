@@ -9,7 +9,7 @@ function ItemButtons(props) {
   const [sizeButtons, setSizeButtons] = useState(false);
   const [drinkName, setDrinkName] = useState(null);
 
-  const sizeButtonHandler = (size, price) => { /* How Do I combine drink and size into one function to create an item?*/
+  const sizeButtonHandler = (size, price) => { 
     setSizeButtons(prev => !prev);
     onItemCreation({
       size: size,
@@ -25,11 +25,11 @@ function ItemButtons(props) {
     setSizeButtons(prev => !prev);
 
     setDrinkName(btn);
-    console.log(btn);
+    // console.log(btn);
   }
 
 
-  let visibleButtons = null; /* Should I useState? */
+  let visibleButtons = null; 
 
   if (sizeButtons) {
     visibleButtons = (

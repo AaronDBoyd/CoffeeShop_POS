@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HomeView from "./HomeView";
 import NewCheck from "./NewCheck";
 import OpenChecksList from "./OpenChecksList";
@@ -65,13 +65,27 @@ function CheckControl() {
     setNewCheckVisible(false);
     setOpenCheckVisible(true);
   };
+  
+  const handleAddingCheckToCheckList = (newCheck) => {
+    const newMainCheckList = mainCheckList.concat(newCheck);
+
+    setMainCheckList(newMainCheckList);
+    
+  };
+
+  
+  useEffect(() => {
+    // console.log(mainCheckList);
+    console.log(`mainCheckList = ${JSON.stringify(mainCheckList)}`);
+  }, [mainCheckList])
 
   
   let currentlyVisibleState = null;
   // let buttonText = null;
 
   if (newCheckVisible) {
-    currentlyVisibleState = <NewCheck />;
+    currentlyVisibleState = <NewCheck handleAddingCheckToCheckList={handleAddingCheckToCheckList}
+    handleListClick={handleListClick}/>;
     // buttonText = "Home View";
   } else if (openChecksVisible) {
     currentlyVisibleState = <OpenChecksList checkList={mainCheckList} />;

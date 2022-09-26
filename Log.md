@@ -27,7 +27,8 @@
 
 #### ---Sunday Septmeber 25th---
 * _1:40pm to 2:20pm - Convert CheckControl to functional component. | 40 mins_
+* _3:00pm to 6:00pm - Add new check to mainCheckList. | 3 hrs_
 
-// ### Time
+### Time: 3 hours 40 mins
 
-## Total Time: 12 hours 15 mins
+## Total Time: 15 hours 55 mins

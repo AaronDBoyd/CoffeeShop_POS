@@ -14,6 +14,7 @@ export default function OpenChecksList(props) {
             open={check.open}
             timeOpen={check.timeOpen}
             id={check.id}
+            items={check.items}
             key={check.id}
           />
         ))}
