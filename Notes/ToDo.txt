@@ -1,8 +1,13 @@
 To Do:
 - Build out OpenChecks list.
   - Make checks clickable
+  - ?? show modal or separate screen(check detail)??
+    - options: modify check or pay check??
+    - modal video: https://www.youtube.com/watch?v=10FNqoPpNbE
+            doc: https://reactcommunity.org/react-modal/
 
 - Build out OpenCheckDetail
+  - ?? should I just redirect to new check?
   - Add to openCheck
   - "close out" check
   - delete(void) items

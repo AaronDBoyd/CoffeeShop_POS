@@ -60,3 +60,7 @@ button {
   padding: 5px;
   background-color: rgb(193, 240, 237);
 }
+
+input {
+  text-align: right;
+}

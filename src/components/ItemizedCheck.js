@@ -16,7 +16,8 @@ function ItemizedCheck(props) {
         <hr />
         <h4> Total Price: $9</h4> */}
         {items.map((item) => (
-          <h4 key={item.key}>
+          <h4 key={item.key}
+          onClick={() => console.log(item.drink)}>
             {item.size} {item.drink} - ${item.price}
           </h4>
         ))}
