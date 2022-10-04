@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from 'react'
 import CheckOpen from "./CheckOpen";
-import Modal from "react-modal";
+import PropTypes from 'prop-types'
 
-export default function OpenChecksList(props) {
+function ClosedChecksList(props) {
   const { checkList } = props;
-  const openChecks = checkList.filter((check) => check.open === true );
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const closedChecks = checkList.filter((check) => check.open === false );
+
 
   return (
     <React.Fragment>
       <div className="openChecksList">
-        <h2>OpenChecksList</h2>
-        {openChecks.map((check) => (
+        <h2>ClosedChecksList</h2>
+        {closedChecks.map((check) => (
           <CheckOpen
             /* onClick={() => setModalIsOpen(true) }*/
             handleSelectingCheck={props.handleSelectingCheck}
@@ -27,9 +27,10 @@ export default function OpenChecksList(props) {
           />
         ))}
       </div>
-      {/* <Modal isOpen={modalIsOpen}>
-        <h2>Test</h2>
-      </Modal> */}
-    </React.Fragment>
-  );
+      </React.Fragment>
+  )
 }
+
+ClosedChecksList.propTypes = {}
+
+export default ClosedChecksList

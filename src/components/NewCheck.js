@@ -31,16 +31,16 @@ function NewCheck(props) {
       items: items
     })
     
-    console.log(`items = ${JSON.stringify(items)}`)
+    // console.log(`items = ${JSON.stringify(items)}`)
   }, [items, totalCost])
 
 
   const handleSendingOrder = () => {
     
     handleListClick();
-    console.log("SEND")
+    // console.log("SEND")
     handleAddingCheckToCheckList(check)
-    console.log(`check = ${JSON.stringify(check)}`);
+    // console.log(`check = ${JSON.stringify(check)}`);
     
   }
 

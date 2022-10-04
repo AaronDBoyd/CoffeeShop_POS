@@ -3,10 +3,12 @@ import HomeView from "./HomeView";
 import NewCheck from "./NewCheck";
 import OpenChecksList from "./OpenChecksList";
 import CheckDetail from "./CheckDetail";
+import ClosedChecksList from "./ClosedChecksList";
 
 function CheckControl() {
   const [newCheckVisible, setNewCheckVisible] = useState(false);
   const [openChecksVisible, setOpenCheckVisible] = useState(false);
+  const [closedChecksVisible, setClosedChecksVisible] = useState(false);
   const [selectedCheck, setSelectedCheck] = useState(null);
   const [mainCheckList, setMainCheckList] = useState([
     /* ??change to an object to prep for firestore?? */
@@ -56,20 +58,30 @@ function CheckControl() {
   const handleHomeClick = () => {
     setNewCheckVisible(false);
     setOpenCheckVisible(false);
+    setClosedChecksVisible(false);
     setSelectedCheck(null);
   };
 
   const handleNewClick = () => {
     setNewCheckVisible(true);
     setOpenCheckVisible(false);
+    setClosedChecksVisible(false);
     setSelectedCheck(null);
   };
 
   const handleListClick = () => {
     setNewCheckVisible(false);
     setOpenCheckVisible(true);
+    setClosedChecksVisible(false);
     setSelectedCheck(null);
   };
+
+  const handleClosedClick = () => {
+    setClosedChecksVisible(true);
+    setNewCheckVisible(false);
+    setOpenCheckVisible(false);
+    setSelectedCheck(null);
+  }
 
   const handleAddingCheckToCheckList = (newCheck) => {
     const newMainCheckList = mainCheckList.concat(newCheck);
@@ -77,10 +89,10 @@ function CheckControl() {
     setMainCheckList(newMainCheckList);
   };
 
-  useEffect(() => {
-    // console.log(mainCheckList);
-    console.log(`mainCheckList = ${JSON.stringify(mainCheckList)}`);
-  }, [mainCheckList]);
+  // useEffect(() => {
+  //   // console.log(mainCheckList);
+  //   console.log(`mainCheckList = ${JSON.stringify(mainCheckList)}`);
+  // }, [mainCheckList]);
 
   const handleSelectingCheck = (id) => {
     const chosenCheck = mainCheckList.filter((check) => check.id === id)[0];
@@ -89,11 +101,23 @@ function CheckControl() {
     // console.log(selectedCheck);
   };
 
+  const handleClosingCheck = () => {
+    const editedList = mainCheckList.filter((check) => check.id !== selectedCheck.id);
+    const closedCheck = selectedCheck;
+    closedCheck.open = false;
+    setMainCheckList(editedList.concat(closedCheck));
+    
+    // console.log(`editedList = ${JSON.stringify(editedList)}`);
+    handleListClick();
+  };
+
   let currentlyVisibleState = null;
   // let buttonText = null;
 
   if (selectedCheck != null) {
-    currentlyVisibleState = <CheckDetail check={selectedCheck}/>;
+    currentlyVisibleState = (
+      <CheckDetail check={selectedCheck} handleClosingCheck={handleClosingCheck} />
+    );
   } else if (openChecksVisible) {
     currentlyVisibleState = (
       <OpenChecksList
@@ -108,6 +132,11 @@ function CheckControl() {
         handleListClick={handleListClick}
       />
     );
+  } else if (closedChecksVisible) {
+    currentlyVisibleState = (
+      <ClosedChecksList
+      checkList={mainCheckList}  />
+    );
   } else {
     currentlyVisibleState = <HomeView />;
     // buttonText = "New Check";
@@ -118,6 +147,7 @@ function CheckControl() {
       <button onClick={handleHomeClick}>Home</button>
       <button onClick={handleNewClick}>New Check</button>
       <button onClick={handleListClick}>OpenChecksList</button>
+      <button onClick={handleClosedClick}>ClosedChecksList</button>
       {currentlyVisibleState}
     </React.Fragment>
   );
