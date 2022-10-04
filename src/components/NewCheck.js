@@ -53,7 +53,7 @@ function NewCheck(props) {
         {/* <br/> */}
         </div>
         <button onClick={() => handleSendingOrder()}>Send Order</button>
-        <button>Pay Check</button>
+        {/* <button>Pay Check</button> */}
       {/* </div> */}
     </React.Fragment>
   )

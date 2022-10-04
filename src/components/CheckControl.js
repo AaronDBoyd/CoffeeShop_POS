@@ -81,7 +81,7 @@ function CheckControl() {
     setNewCheckVisible(false);
     setOpenCheckVisible(false);
     setSelectedCheck(null);
-  }
+  };
 
   const handleAddingCheckToCheckList = (newCheck) => {
     const newMainCheckList = mainCheckList.concat(newCheck);
@@ -102,12 +102,20 @@ function CheckControl() {
   };
 
   const handleClosingCheck = () => {
-    const editedList = mainCheckList.filter((check) => check.id !== selectedCheck.id);
+    const editedList = mainCheckList.filter(
+      (check) => check.id !== selectedCheck.id
+    );
     const closedCheck = selectedCheck;
     closedCheck.open = false;
     setMainCheckList(editedList.concat(closedCheck));
-    
-    // console.log(`editedList = ${JSON.stringify(editedList)}`);
+
+    handleListClick();
+  };
+
+  const handleDeletingCheck = (checkId) => {
+    const newCheckList = mainCheckList.filter((check) => check.id !== checkId);
+    setMainCheckList(newCheckList);
+
     handleListClick();
   };
 
@@ -116,7 +124,11 @@ function CheckControl() {
 
   if (selectedCheck != null) {
     currentlyVisibleState = (
-      <CheckDetail check={selectedCheck} handleClosingCheck={handleClosingCheck} />
+      <CheckDetail
+        check={selectedCheck}
+        handleClosingCheck={handleClosingCheck}
+        handleDeletingCheck={handleDeletingCheck}
+      />
     );
   } else if (openChecksVisible) {
     currentlyVisibleState = (
@@ -133,10 +145,7 @@ function CheckControl() {
       />
     );
   } else if (closedChecksVisible) {
-    currentlyVisibleState = (
-      <ClosedChecksList
-      checkList={mainCheckList}  />
-    );
+    currentlyVisibleState = <ClosedChecksList checkList={mainCheckList} handleDeletingCheck={handleDeletingCheck} />;
   } else {
     currentlyVisibleState = <HomeView />;
     // buttonText = "New Check";

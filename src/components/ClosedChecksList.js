@@ -1,5 +1,5 @@
 import React from 'react'
-import CheckOpen from "./CheckOpen";
+import CheckClosed from './CheckClosed'
 import PropTypes from 'prop-types'
 
 function ClosedChecksList(props) {
@@ -12,10 +12,10 @@ function ClosedChecksList(props) {
       <div className="openChecksList">
         <h2>ClosedChecksList</h2>
         {closedChecks.map((check) => (
-          <CheckOpen
+          <CheckClosed
             /* onClick={() => setModalIsOpen(true) }*/
             handleSelectingCheck={props.handleSelectingCheck}
-
+            handleDeletingCheck={props.handleDeletingCheck}
             drink={check.drink}
             size={check.size}
             totalPrice={check.totalPrice}
