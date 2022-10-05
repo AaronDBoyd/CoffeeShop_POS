@@ -35,6 +35,7 @@ function CheckDetail(props) {
       if (check.totalPrice > enteredAmount) {
         setCloseCheckString(
           `Amount Due: $${JSON.stringify(check.totalPrice - enteredAmount)}`
+          // to 
         );
       }
     }
@@ -51,7 +52,7 @@ function CheckDetail(props) {
       <div>
         <h3>PayCheck</h3>
         <h4>Tendered Amount</h4>
-        <form onSubmit={formSubmissionHandler}>
+        <form  onSubmit={formSubmissionHandler}>
           <input type="text" name="amount" placeholder="0.00" />
           <br />
           <button type="submit">Close Check</button>

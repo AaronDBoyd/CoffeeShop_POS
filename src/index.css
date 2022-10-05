@@ -4,7 +4,7 @@ html {
 
 body {
   /* margin: 0 400px; */
-  margin: auto 400px ;
+  margin: auto 200px ;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -44,7 +44,8 @@ div {
 .itemizedCheck, 
 .itemButtons {
   background-color: rgb(236, 222, 250);
-  width: 400px;;
+  /* width: 400px;; */
+  width: 800px;
 }
 
 .newCheck {
@@ -64,3 +65,9 @@ button {
 input {
   text-align: right;
 }
+
+/* .newCheckModal {
+width: 400px;
+position: center;
+overflow: hidden;
+} */

@@ -1,4 +1,8 @@
 To Do:
+- Edit/Add to checks
+  - delete items before sending order
+  - add/delete items from open checks
+
 - Build out OpenChecks list.
   - Make checks clickable
   - ?? show modal or separate screen(check detail)??
