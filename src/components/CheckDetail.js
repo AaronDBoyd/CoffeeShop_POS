@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import EditCheck from "./EditCheck";
 // import PropTypes from 'prop-types'
 
 function CheckDetail(props) {
@@ -6,6 +7,7 @@ function CheckDetail(props) {
   const [enteredAmount, setEnteredAmount] = useState(0);
   const [closeCheckString, setCloseCheckString] = useState(null);
   const amountRef = useRef();
+  const [editingScreen, setEditingScreen] = useState(false);
 
   // let closeCheckString = null;
 
@@ -46,9 +48,11 @@ function CheckDetail(props) {
       <div>
         <h2>CheckDetail</h2>
         <h3>Total Price - ${check.totalPrice}</h3>
-        <button >Edit</button>
+        <button onClick={() => setEditingScreen(prev => !prev)}>Edit</button>
         <button onClick={() => handleDeletingCheck(check.id)}>Void</button>
+        {editingScreen && <EditCheck selectedCheck={check}/>}
       </div>
+      
       <div>
         <h3>PayCheck</h3>
         <h4>Tendered Amount</h4>

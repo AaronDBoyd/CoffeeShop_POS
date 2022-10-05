@@ -21,15 +21,14 @@ function NewCheck(props) {
 
   // not displaying check items after any are deleted
   const handleDeletingItems = (itm) => {
-
-    const itmId = itm.key
-    console.log(itmId)
+    const itmId = itm.key;
+    // console.log(itmId);
 
     const newItemsList = items.filter((item) => item.key !== itmId);
     const voidedItem = items.filter((item) => item.key === itmId);
-    const voidPrice = itm.price 
-    console.log(newItemsList)
-    console.log(voidedItem)
+    const voidPrice = itm.price;
+    // console.log(newItemsList);
+    // console.log(voidedItem);
     setItems(newItemsList);
     setTotalCost(totalCost - voidPrice);
   };

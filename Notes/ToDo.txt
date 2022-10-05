@@ -1,7 +1,8 @@
 To Do:
 - Edit/Add to checks
-  - delete items before sending order
   - add/delete items from open checks
+      - show similar page to new check with items populated
+      - pass in functions to edit check
 
 - Build out OpenChecks list.
   - Make checks clickable
