@@ -69,5 +69,16 @@ input {
 /* .newCheckModal {
 width: 400px;
 position: center;
-overflow: hidden;
+overflow: hidden;  */
+
+/* overlay: {
+  // position: 'fixed',
+  top: 200,
+  left: 450,
+  right: 450,
+  bottom: 200,
+  borderRadius: '40px',
+  // backgroundColor: '#ccc'
+  // backgroundColor: 'rgba(255, 255, 255, 0.75)'
+}
 } */

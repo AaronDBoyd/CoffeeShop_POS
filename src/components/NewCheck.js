@@ -20,11 +20,16 @@ function NewCheck(props) {
   };
 
   // not displaying check items after any are deleted
-  const handleDeletingItems = (itemId) => {
-    const newItemsList = items.filter((item) => item.id !== itemId);
-    const voidedItem = items.filter((item) => (item.id === itemId));
-    const voidPrice = voidedItem[0].price 
-    // console.log(voidedItem[0].price)
+  const handleDeletingItems = (itm) => {
+
+    const itmId = itm.key
+    console.log(itmId)
+
+    const newItemsList = items.filter((item) => item.key !== itmId);
+    const voidedItem = items.filter((item) => item.key === itmId);
+    const voidPrice = itm.price 
+    console.log(newItemsList)
+    console.log(voidedItem)
     setItems(newItemsList);
     setTotalCost(totalCost - voidPrice);
   };
@@ -38,6 +43,7 @@ function NewCheck(props) {
       totalPrice: totalCost,
       items: items,
     });
+    // console.log(items)
   }, [items, totalCost]);
 
   const handleSendingOrder = () => {
