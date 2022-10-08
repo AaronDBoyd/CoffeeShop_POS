@@ -57,7 +57,7 @@ function EditCheck(props) {
     passedCost = check.totalPrice
   }
 
-  console.log(selectedCheck.items)
+  
   return (
     <React.Fragment>
       <hr />

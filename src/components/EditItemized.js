@@ -5,9 +5,6 @@ function EditItemized(props) {
   const { items, totalCost } = props;
 
 
-  console.log(items)
-
-
   return (
     <React.Fragment>
       <div className='itemizedCheck'>

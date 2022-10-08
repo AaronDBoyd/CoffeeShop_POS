@@ -119,8 +119,10 @@ function CheckControl() {
     handleListClick();
   };
 
-  const handleEditingCheckInList = () => {
-    
+  const handleEditingCheckInList = (newCheck) => {
+    const oldList = mainCheckList.filter((check) => check.id !== newCheck.id);
+    const newList = oldList.concat(newCheck);
+    setMainCheckList(newList);
   }
 
   let currentlyVisibleState = null;
@@ -130,8 +132,10 @@ function CheckControl() {
     currentlyVisibleState = (
       <CheckDetail
         check={selectedCheck}
+        handleListClick={handleListClick}
         handleClosingCheck={handleClosingCheck}
         handleDeletingCheck={handleDeletingCheck}
+        handleEditingCheckInList={handleEditingCheckInList}
       />
     );
   } else if (openChecksVisible) {

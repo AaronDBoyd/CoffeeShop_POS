@@ -3,7 +3,7 @@ import EditCheck from "./EditCheck";
 // import PropTypes from 'prop-types'
 
 function CheckDetail(props) {
-  const { check, handleClosingCheck, handleDeletingCheck } = props;
+  const { check, handleClosingCheck, handleDeletingCheck, handleListClick, handleEditingCheckInList } = props;
   const [enteredAmount, setEnteredAmount] = useState(0);
   const [closeCheckString, setCloseCheckString] = useState(null);
   const amountRef = useRef();
@@ -50,7 +50,9 @@ function CheckDetail(props) {
         {/* <h3>Total Price - ${check.totalPrice}</h3> */}
         <button onClick={() => setEditingScreen(prev => !prev)}>Edit</button>
         <button onClick={() => handleDeletingCheck(check.id)}>Void</button>
-        {editingScreen && <EditCheck selectedCheck={check}/>}
+        {editingScreen && <EditCheck selectedCheck={check}
+                                      handleListClick={handleListClick}
+                                      handleEditingCheckInList={handleEditingCheckInList} />}
       </div>
       
       <div>
