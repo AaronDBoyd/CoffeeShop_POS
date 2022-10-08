@@ -47,7 +47,7 @@ function CheckDetail(props) {
     <React.Fragment>
       <div>
         <h2>CheckDetail</h2>
-        <h3>Total Price - ${check.totalPrice}</h3>
+        {/* <h3>Total Price - ${check.totalPrice}</h3> */}
         <button onClick={() => setEditingScreen(prev => !prev)}>Edit</button>
         <button onClick={() => handleDeletingCheck(check.id)}>Void</button>
         {editingScreen && <EditCheck selectedCheck={check}/>}
