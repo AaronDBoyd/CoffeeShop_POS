@@ -3,7 +3,13 @@ import EditCheck from "./EditCheck";
 // import PropTypes from 'prop-types'
 
 function CheckDetail(props) {
-  const { check, handleClosingCheck, handleDeletingCheck, handleListClick, handleEditingCheckInList } = props;
+  const {
+    check,
+    handleClosingCheck,
+    handleDeletingCheck,
+    handleListClick,
+    handleEditingCheckInList,
+  } = props;
   const [enteredAmount, setEnteredAmount] = useState(0);
   const [closeCheckString, setCloseCheckString] = useState(null);
   const amountRef = useRef();
@@ -37,28 +43,45 @@ function CheckDetail(props) {
       if (check.totalPrice > enteredAmount) {
         setCloseCheckString(
           `Amount Due: $${JSON.stringify(check.totalPrice - enteredAmount)}`
-          // to 
+          // to
         );
       }
     }
   }, [enteredAmount]);
+
+  if (editingScreen) {
+    return (
+      <React.Fragment>
+        <div>
+        <h2>CheckDetail</h2>
+        {/* <h3>Total Price - ${check.totalPrice}</h3> */}
+        <button onClick={() => setEditingScreen((prev) => !prev)}>Edit</button>
+        <button onClick={() => handleDeletingCheck(check.id)}>Void</button>
+        <EditCheck
+          selectedCheck={check}
+          handleListClick={handleListClick}
+          handleEditingCheckInList={handleEditingCheckInList}
+        />
+      </div>
+      </React.Fragment>
+    );
+  }
 
   return (
     <React.Fragment>
       <div>
         <h2>CheckDetail</h2>
         {/* <h3>Total Price - ${check.totalPrice}</h3> */}
-        <button onClick={() => setEditingScreen(prev => !prev)}>Edit</button>
+        <button onClick={() => setEditingScreen((prev) => !prev)}>Edit</button>
         <button onClick={() => handleDeletingCheck(check.id)}>Void</button>
-        {editingScreen && <EditCheck selectedCheck={check}
-                                      handleListClick={handleListClick}
-                                      handleEditingCheckInList={handleEditingCheckInList} />}
+        
       </div>
-      
+
       <div>
         <h3>PayCheck</h3>
+        <h4>Total Price: ${check.totalPrice}</h4>
         <h4>Tendered Amount</h4>
-        <form  onSubmit={formSubmissionHandler}>
+        <form onSubmit={formSubmissionHandler}>
           <input type="text" name="amount" placeholder="0.00" />
           <br />
           <button type="submit">Close Check</button>
