@@ -35,16 +35,25 @@ function ItemButtons(props) {
 
   if (sizeButtons) {
     visibleButtons = (
-      <div className='itemButtons'>
-        <button onClick={() => sizeButtonHandler("small", 2)}>Small</button>
-        <button onClick={() => sizeButtonHandler("medium", 4)}>Medium</button>
-        <button onClick={() => sizeButtonHandler("large", 6)}>Large</button>
+      <div className='itemButtons sizeButtons'>
+        <button onClick={() => sizeButtonHandler("Small", 2)}>Small</button>
+        <br />
+        <button onClick={() => sizeButtonHandler("Medium", 4)}>Medium</button>
+        <br />
+        <button onClick={() => sizeButtonHandler("Large", 6)}>Large</button>
       </div>);
     } else {
       visibleButtons = (
         <div className='itemButtons'>
-          <button onClick={() => coffeeButtonHandler("hot coffee")}>Hot Coffee</button>
-          <button onClick={() => coffeeButtonHandler("cold coffee")}>Cold Coffee</button>
+          <button onClick={() => coffeeButtonHandler("Hot Coffee")}>Hot Coffee</button>
+          <button onClick={() => coffeeButtonHandler("Iced Coffee")}>Iced Coffee</button>
+          <br />
+          <button onClick={() => coffeeButtonHandler("Frappuccino")}>Frappuccino</button>
+          <button onClick={() => coffeeButtonHandler("Pupp-uccino")}>Pupp-uccino</button>
+          <br />
+          <button onClick={() => coffeeButtonHandler("Hot Tea")}>Hot Tea</button>
+          <button onClick={() => coffeeButtonHandler("Iced Tea")}>Iced Tea</button>
+          
         </div>);
     };
 

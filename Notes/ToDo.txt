@@ -2,19 +2,19 @@ To Do:
 
   
 
-- Build out HomeView.
---Sign in with pin pad
 
 - Style
 -- add more drinks.
--- adjust modal.
+--  adjust modal.
 
 
 - Implement firebase.
 - Implement authentication.
 
-- Create "enderedAmount" state to add another payment if not enough
+- Create "enteredAmount" state to add another payment if not enough
 
+- [ x ] Build out HomeView.
+--Sign in with pin pad
 
 - [ x ] Build out OpenCheckDetail
   - ?? should I just redirect to new check?

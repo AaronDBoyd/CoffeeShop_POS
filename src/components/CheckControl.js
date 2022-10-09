@@ -75,7 +75,7 @@ function CheckControl() {
     const newCheckList = mainCheckList.filter((check) => check.id !== checkId);
     setMainCheckList(newCheckList);
 
-    handleListClick();
+    // handleListClick();
   };
 
   const handleEditingCheckInList = (newCheck) => {

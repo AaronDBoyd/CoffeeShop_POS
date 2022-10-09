@@ -72,7 +72,7 @@ export default function HomeView(props) {
 
   let message = null;
   if (invalid === true) {
-    message = "PIN invalid";
+    message = "*** PIN invalid ***";
   } else {
     message = "Please enter PIN";
   }

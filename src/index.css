@@ -1,5 +1,6 @@
 html {
-  background-color: rgb(202, 201, 201);
+  background-color: rgb(61, 61, 61);
+  /* background-color: rgb(33, 33, 33); */
 }
 
 body {
@@ -21,7 +22,8 @@ code {
 }
 
 #root {
-  background-color: rgb(236, 222, 250);
+  /* background-color: rgb(236, 222, 250); */
+  background-color: rgb(202, 175, 231);
   
 }
 
@@ -33,19 +35,29 @@ code {
 div {
   border: 3px solid black;
   margin: 20px 20px;
-  background-color: rgb(193, 240, 237);
+  background-color: rgb(170, 239, 234);
   /* background-color: rgb(222, 243, 253); */
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.831);
 }
 
 .checkOpen {
-  background-color: rgba(246, 246, 246, 0.813);
+  background-color: rgba(184, 194, 248, 0.813);
 }
 
 .itemizedCheck, 
 .itemButtons {
-  background-color: rgb(236, 222, 250);
+  /* background-color: rgb(236, 222, 250); */
+  background-color: rgba(184, 194, 248, 0.813);
   /* width: 400px;; */
   width: 800px;
+}
+
+.sizeButtons {
+  padding: 2%;
+}
+
+.sizeButtons > button {
+  width: 300px;
 }
 
 .newCheck {
@@ -59,7 +71,8 @@ button {
   margin: 10px;
   border: 3px solid black;
   padding: 5px;
-  background-color: rgb(193, 240, 237);
+  background-color: rgb(170, 239, 234);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.831);
 }
 
 input {
@@ -93,7 +106,8 @@ overflow: hidden;  */
 }
 
 .logInButtons {
-  background-color: rgb(236, 222, 250);
+  /* background-color: rgb(236, 222, 250); */
+  background-color: rgba(184, 194, 248, 0.813);
   width: 300px;
   align-self: center;
   
@@ -111,3 +125,4 @@ overflow: hidden;  */
 strong {
   font-weight: 900;
 }
+

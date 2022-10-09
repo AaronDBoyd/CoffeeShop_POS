@@ -7,7 +7,7 @@ export default function Header() {
         <h1>
           <em>Dew Drop's Coffee Shop</em>
         </h1>
-        <hr />
+        
       </div>
     </React.Fragment>
   );

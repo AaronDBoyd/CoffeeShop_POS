@@ -54,33 +54,33 @@ function ItemizedCheck(props) {
           className="newCheckModal"
           isOpen={showModal}
           ariaHideApp={false}
-          // style={{
-          //   overlay: {
-          //     // position: 'fixed',
-          //     // top: 150,
-          //     // left: 400,
-          //     // right: 400,
-          //     // bottom: 200,
-          //     borderRadius: "40px",
-          //     // backgroundColor: '#ccc'
-          //     // backgroundColor: 'rgba(255, 255, 255, 0.75)'
-          //   },
-          //   content: {
-          //     position: "absolute",
-          //     top: "10px",
-          //     left: "10px",
-          //     right: "10px",
-          //     bottom: "10px",
-          //     border: "1px solid #ccc",
-          //     background: "rgb(236, 222, 250)",
-          //     // background: '#fff',
-          //     overflow: "auto",
-          //     WebkitOverflowScrolling: "touch",
-          //     borderRadius: "40px",
-          //     outline: "none",
-          //     padding: "20px",
-          //   },
-          // }}
+          style={{
+            overlay: {
+              // position: 'fixed',
+              top: 150,
+              left: 400,
+              right: 400,
+              bottom: 200,
+              borderRadius: "40px",
+              // backgroundColor: '#ccc'
+              // backgroundColor: 'rgba(255, 255, 255, 0.75)'
+            },
+            content: {
+              position: "absolute",
+              top: "10px",
+              left: "10px",
+              right: "10px",
+              bottom: "10px",
+              border: "1px solid #ccc",
+              background: "rgb(202, 175, 231)",
+              // background: '#fff',
+              overflow: "auto",
+              WebkitOverflowScrolling: "touch",
+              borderRadius: "40px",
+              outline: "none",
+              padding: "20px",
+            },
+          }}
         >
           <h1>Delete Item?</h1>
           <button onClick={handleYesClick}>Yes</button>
