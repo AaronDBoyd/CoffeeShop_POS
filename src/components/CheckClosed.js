@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 function CheckClosed(props) {
   const { handleDeletingCheck } = props;
@@ -13,8 +13,7 @@ function CheckClosed(props) {
         <h4>Number of items: {props.items.length}</h4>
         <h4>{props.timeOpen}</h4>
         <button onClick={() => handleDeletingCheck(props.id)}>Void</button>
-      </div>
-      
+      </div>      
     </React.Fragment>
   )
 }

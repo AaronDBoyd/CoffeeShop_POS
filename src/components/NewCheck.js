@@ -6,29 +6,20 @@ import { v4 } from "uuid";
 
 function NewCheck(props) {
   const { handleListClick, handleAddingCheckToCheckList } = props;
-
   const [check, setCheck] = useState({});
   const [items, setItems] = useState([]);
   const [totalCost, setTotalCost] = useState(0);
 
   const handleAddingItemsToCheck = (newItem) => {
-    // setItems(prev => [...prev, item]);
     const newItemsList = items.concat(newItem);
-
     setItems(newItemsList);
     setTotalCost(totalCost + newItem.price);
   };
 
-  // not displaying check items after any are deleted
   const handleDeletingItems = (itm) => {
     const itmId = itm.key;
-    // console.log(itmId);
-
     const newItemsList = items.filter((item) => item.key !== itmId);
-    const voidedItem = items.filter((item) => item.key === itmId);
     const voidPrice = itm.price;
-    // console.log(newItemsList);
-    // console.log(voidedItem);
     setItems(newItemsList);
     setTotalCost(totalCost - voidPrice);
   };
@@ -42,7 +33,6 @@ function NewCheck(props) {
       totalPrice: totalCost,
       items: items,
     });
-    // console.log(items)
   }, [items, totalCost]);
 
   const handleSendingOrder = () => {
@@ -61,11 +51,8 @@ function NewCheck(props) {
           handleDeletingItems={handleDeletingItems}
         />
         <ItemButtons onItemCreation={handleAddingItemsToCheck} />
-        {/* <br/> */}
       </div>
       <button onClick={() => handleSendingOrder()}>Send Order</button>
-      {/* <button>Pay Check</button> */}
-      {/* </div> */}
     </React.Fragment>
   );
 }

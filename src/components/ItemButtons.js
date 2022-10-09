@@ -5,9 +5,7 @@ import { v4 } from 'uuid';
 
 // add Modifyer modal when item clicked
 function ItemButtons(props) {
-
   const { onItemCreation } = props;
-
   const [sizeButtons, setSizeButtons] = useState(false);
   const [drinkName, setDrinkName] = useState(null);
 
@@ -19,20 +17,15 @@ function ItemButtons(props) {
       price: price,
       key: v4(),
     })
-
     setDrinkName(null);
   }
 
   const coffeeButtonHandler = (btn) => {
     setSizeButtons(prev => !prev);
-
     setDrinkName(btn);
-    // console.log(btn);
   }
 
-
   let visibleButtons = null; 
-
   if (sizeButtons) {
     visibleButtons = (
       <div className='itemButtons sizeButtons'>
@@ -52,12 +45,10 @@ function ItemButtons(props) {
           <button onClick={() => coffeeButtonHandler("Pupp-uccino")}>Pupp-uccino</button>
           <br />
           <button onClick={() => coffeeButtonHandler("Hot Tea")}>Hot Tea</button>
-          <button onClick={() => coffeeButtonHandler("Iced Tea")}>Iced Tea</button>
-          
+          <button onClick={() => coffeeButtonHandler("Iced Tea")}>Iced Tea</button>         
         </div>);
     };
 
-  
   return (
     <React.Fragment>
       {visibleButtons}

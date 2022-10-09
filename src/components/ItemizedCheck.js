@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import PropTypes from 'prop-types'
 import ReactModal from "react-modal";
 
@@ -15,7 +15,6 @@ function ItemizedCheck(props) {
 
   const handleYesClick = () => {
     setShowModal((prev) => !prev);
-
     setItemBookmark(null);
     handleDeletingItems(itemBookmark);
   };
@@ -24,10 +23,6 @@ function ItemizedCheck(props) {
     setShowModal((prev) => !prev);
     setItemBookmark(item);
   };
-
-  // useEffect(() => {
-  //   console.log(itemBookmark);
-  // }, [itemBookmark]);
 
   return (
     <React.Fragment>
@@ -39,7 +34,6 @@ function ItemizedCheck(props) {
             key={item.key}
             onClick={
               () => handleItemClick(item)
-              // () => handleDeletingItems(item.id)
             }
           >
             {item.size} {item.drink} - ${item.price}
@@ -48,22 +42,17 @@ function ItemizedCheck(props) {
         <hr />
         <h4> Total Price: ${totalCost}</h4>
 
-        {/* <button onClick={toggleModal}>Open Modal</button> */}
-
         <ReactModal
           className="newCheckModal"
           isOpen={showModal}
           ariaHideApp={false}
           style={{
             overlay: {
-              // position: 'fixed',
               top: 150,
               left: 400,
               right: 400,
               bottom: 200,
               borderRadius: "40px",
-              // backgroundColor: '#ccc'
-              // backgroundColor: 'rgba(255, 255, 255, 0.75)'
             },
             content: {
               position: "absolute",
@@ -73,7 +62,6 @@ function ItemizedCheck(props) {
               bottom: "10px",
               border: "1px solid #ccc",
               background: "rgb(202, 175, 231)",
-              // background: '#fff',
               overflow: "auto",
               WebkitOverflowScrolling: "touch",
               borderRadius: "40px",

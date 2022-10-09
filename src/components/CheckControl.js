@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HomeView from "./HomeView";
 import NewCheck from "./NewCheck";
 import OpenChecksList from "./OpenChecksList";
@@ -44,20 +44,12 @@ function CheckControl() {
 
   const handleAddingCheckToCheckList = (newCheck) => {
     const newMainCheckList = mainCheckList.concat(newCheck);
-
     setMainCheckList(newMainCheckList);
   };
-
-  // useEffect(() => {
-  //   // console.log(mainCheckList);
-  //   console.log(`mainCheckList = ${JSON.stringify(mainCheckList)}`);
-  // }, [mainCheckList]);
 
   const handleSelectingCheck = (id) => {
     const chosenCheck = mainCheckList.filter((check) => check.id === id)[0];
     setSelectedCheck(chosenCheck);
-    // console.log("click");
-    // console.log(selectedCheck);
   };
 
   const handleClosingCheck = () => {
@@ -67,15 +59,12 @@ function CheckControl() {
     const closedCheck = selectedCheck;
     closedCheck.open = false;
     setMainCheckList(editedList.concat(closedCheck));
-
     handleListClick();
   };
 
   const handleDeletingCheck = (checkId) => {
     const newCheckList = mainCheckList.filter((check) => check.id !== checkId);
     setMainCheckList(newCheckList);
-
-    // handleListClick();
   };
 
   const handleEditingCheckInList = (newCheck) => {
@@ -113,7 +102,6 @@ function CheckControl() {
     currentlyVisibleState = <ClosedChecksList checkList={mainCheckList} handleDeletingCheck={handleDeletingCheck} />;
   } else {
     currentlyVisibleState = <HomeView setLoggedIn={setLoggedIn} handleNewClick={handleNewClick}/>;
-    // buttonText = "New Check";
   }
 
   let navButtons = null;
@@ -130,10 +118,6 @@ function CheckControl() {
 
   return (
     <React.Fragment>
-      {/* <button onClick={handleLogoutClick}>Log Out</button>
-      <button onClick={handleNewClick}>New Check</button>
-      <button onClick={handleListClick}>OpenChecksList</button>
-      <button onClick={handleClosedClick}>ClosedChecksList</button> */}
       {navButtons}
       {currentlyVisibleState}
     </React.Fragment>

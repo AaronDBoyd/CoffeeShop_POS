@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ReactModal from "react-modal";
 
 export default function HomeView(props) {
   const { setLoggedIn, handleNewClick } = props;
-  const [showModal, setShowModal] = useState(false);
   const [enteredPin, setEnteredPin] = useState([]);
   const [invalid, setInvalid] = useState(false);
   const validPIN = "5555"
-
-  const toggleModal = () => {
-    setShowModal((prev) => !prev);
-  };
 
   const handleEnteringPin = (num) => {
     if (enteredPin.length < 4) {
@@ -18,26 +12,16 @@ export default function HomeView(props) {
     }
   };
 
-  useEffect(() => {
-    if (enteredPin.length === 4) {
-      console.log(enteredPin);
-      // setEnteredPin([]);
-    }
-  }, [enteredPin]);
-
   const handleClear = () => {
-    console.log("CLEAR");
     setEnteredPin([]);
   };
 
   
   const handleEnter = () => {
     if (enteredPin.join("") === validPIN) {
-      console.log("correct");
       setLoggedIn(true);
       handleNewClick();
     } else {
-      console.log("incorrect");
       setInvalid(true);
     }
   };
@@ -68,6 +52,8 @@ export default function HomeView(props) {
     case 4:
       stars = "* * * *";
       break;
+    default:
+      stars = " - "
   }
 
   let message = null;

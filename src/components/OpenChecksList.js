@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import CheckOpen from "./CheckOpen";
-import Modal from "react-modal";
 
 export default function OpenChecksList(props) {
   const { checkList } = props;
   const openChecks = checkList.filter((check) => check.open === true );
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <React.Fragment>
@@ -13,9 +11,7 @@ export default function OpenChecksList(props) {
         <h2>OpenChecksList</h2>
         {openChecks.map((check) => (
           <CheckOpen
-            /* onClick={() => setModalIsOpen(true) }*/
             handleSelectingCheck={props.handleSelectingCheck}
-
             drink={check.drink}
             size={check.size}
             totalPrice={check.totalPrice}
@@ -27,9 +23,6 @@ export default function OpenChecksList(props) {
           />
         ))}
       </div>
-      {/* <Modal isOpen={modalIsOpen}>
-        <h2>Test</h2>
-      </Modal> */}
     </React.Fragment>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import EditItemized from "./EditItemized";
 import ItemButtons from "./ItemButtons";
 
@@ -9,10 +9,12 @@ function EditCheck(props) {
   const [items, setItems] = useState([]);
   const [totalCost, setTotalCost] = useState(0);
 
-  const handleAddingItemsToCheck = (newItem) => {
-    // setItems(prev => [...prev, item]);
-    const newItemsList = items.concat(newItem);
+  useEffect(() => {
+    setItems(selectedCheck.items)
+  },[selectedCheck.items])
 
+  const handleAddingItemsToCheck = (newItem) => {
+    const newItemsList = items.concat(newItem);
     setItems(newItemsList);
     setTotalCost(totalCost + newItem.price);
   };
@@ -23,10 +25,10 @@ function EditCheck(props) {
       timeOpen: selectedCheck.timeOpen,
       open: true,
       totalPrice: selectedCheck.totalPrice + totalCost,
-      items: selectedCheck.items.concat(items), 
+      // items: selectedCheck.items.concat(items), 
+      items: items, 
     });
-    // console.log(items)
-  }, [items, totalCost]);
+  }, [items, totalCost, selectedCheck.totalPrice, selectedCheck.timeOpen, selectedCheck.id]);
 
   // useEffect(() => {
   //   console.log(`check = ${JSON.stringify(check)}`)
@@ -34,7 +36,7 @@ function EditCheck(props) {
   // },[check])
 
   const handleEditSend = () => {
-    if (totalCost > 0) {
+    if (check.totalPrice > 0) {
       handleListClick();
       handleEditingCheckInList(check);
     }
@@ -53,13 +55,8 @@ function EditCheck(props) {
 
   const handleDeletingItems = (itm) => {
     const itmId = itm.key;
-    // console.log(itmId);
-
     const newItemsList = items.filter((item) => item.key !== itmId);
-    const voidedItem = items.filter((item) => item.key === itmId);
     const voidPrice = itm.price;
-    // console.log(newItemsList);
-    // console.log(voidedItem);
     setItems(newItemsList);
     setTotalCost(totalCost - voidPrice);
   };

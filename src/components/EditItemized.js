@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+// import PropTypes from 'prop-types'
 import ReactModal from "react-modal";
 
 function EditItemized(props) {
@@ -17,11 +17,13 @@ function EditItemized(props) {
 
     setItemBookmark(null);
     handleDeletingItems(itemBookmark);
+    console.log(items)
   };
 
   const handleItemClick = (item) => {
     setShowModal((prev) => !prev);
     setItemBookmark(item);
+
   };
 
 
@@ -33,10 +35,6 @@ function EditItemized(props) {
             key={item.key}
             onClick={
               () => handleItemClick(item)}
-            // onClick={
-            //   () => handleItemClick(item)
-              // () => handleDeletingItems(item.id)
-            // }
           >
             {item.size} {item.drink} - ${item.price}
           </h4>
@@ -51,14 +49,11 @@ function EditItemized(props) {
           ariaHideApp={false}
           style={{
             overlay: {
-              // position: 'fixed',
               top: 150,
               left: 400,
               right: 400,
               bottom: 200,
               borderRadius: "40px",
-              // backgroundColor: '#ccc'
-              // backgroundColor: 'rgba(255, 255, 255, 0.75)'
             },
             content: {
               position: "absolute",
@@ -68,7 +63,6 @@ function EditItemized(props) {
               bottom: "10px",
               border: "1px solid #ccc",
               background: "rgb(202, 175, 231)",
-              // background: '#fff',
               overflow: "auto",
               WebkitOverflowScrolling: "touch",
               borderRadius: "40px",
@@ -82,9 +76,7 @@ function EditItemized(props) {
           <button onClick={handleNoClick}>No</button>
         </ReactModal>
       </div>
-
-    </React.Fragment>
-    
+    </React.Fragment>    
   )
 }
 
