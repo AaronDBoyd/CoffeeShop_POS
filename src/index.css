@@ -82,3 +82,32 @@ overflow: hidden;  */
   // backgroundColor: 'rgba(255, 255, 255, 0.75)'
 }
 } */
+
+.login { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  /* padding: 20px; */
+}
+
+.logInButtons {
+  background-color: rgb(236, 222, 250);
+  width: 300px;
+  align-self: center;
+  
+}
+
+.logIn_button {
+  width: 70px;
+}
+
+.enter_clear {
+  width: 80px;
+  font-size: medium;
+}
+
+strong {
+  font-weight: 900;
+}

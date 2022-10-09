@@ -1,40 +1,45 @@
 To Do:
-- Edit/Add to checks
-  - add/delete items from open checks
-      - show similar page to new check with items populated
-      - pass in functions to edit check
 
-- Build out OpenChecks list.
-  - Make checks clickable
-  - ?? show modal or separate screen(check detail)??
-    - options: modify check or pay check??
-    - modal video: https://www.youtube.com/watch?v=10FNqoPpNbE
-            doc: https://reactcommunity.org/react-modal/
+  
 
-- Build out OpenCheckDetail
+- Build out HomeView.
+--Sign in with pin pad
+
+- Style
+-- add more drinks.
+-- adjust modal.
+
+
+- Implement firebase.
+- Implement authentication.
+
+
+
+- [ x ] Build out OpenCheckDetail
   - ?? should I just redirect to new check?
   - Add to openCheck
   - "close out" check
   - delete(void) items
   - delete check
 
-- Build out new check page.
+- [ x Build out new check page.
   - look at firebase lessons to consider which format to save checks to mainCheckList in CheckComponent 
   - add modifyers(stretch goal)
   - make items clickable to bring up edit module which gives opions to edit/ delete item and add special instructions.(stretch goal)
   
-- Build out components using basic local/shared state.
-- Build out HomeView.
-  
+- [ x ] Build out components using basic local/shared state.
 
-
-
-
-- Implement firebase.
-- Find Authentication software.
-
-
+-[ x ] Build out OpenChecks list.
+  - Make checks clickable
+  - ?? show modal or separate screen(check detail)??
+    - options: modify check or pay check??
+    - modal video: https://www.youtube.com/watch?v=10FNqoPpNbE
+            doc: https://reactcommunity.org/react-modal/
 
 -[ x ] Connect button to change to checks list.
 -[ x ] Create v1diagram.
+- [ x ]Edit/Add to checks
+  - add/delete items from open checks
+      - show similar page to new check with items populated
+      - pass in functions to edit check
 

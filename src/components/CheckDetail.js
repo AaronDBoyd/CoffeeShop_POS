@@ -33,7 +33,7 @@ function CheckDetail(props) {
           `Change Amount: $${JSON.stringify(enteredAmount - check.totalPrice)}`
         );
         const timer = setTimeout(() => {
-          console.log(check.open);
+          
           handleClosingCheck();
         }, 3000);
 

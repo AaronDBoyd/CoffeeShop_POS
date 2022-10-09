@@ -161,7 +161,7 @@ function CheckControl() {
 
   return (
     <React.Fragment>
-      <button onClick={handleHomeClick}>Home</button>
+      <button onClick={handleHomeClick}>Log Out</button>
       <button onClick={handleNewClick}>New Check</button>
       <button onClick={handleListClick}>OpenChecksList</button>
       <button onClick={handleClosedClick}>ClosedChecksList</button>
