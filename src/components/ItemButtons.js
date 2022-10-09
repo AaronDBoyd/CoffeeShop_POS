@@ -2,6 +2,8 @@ import React, { useState }  from 'react'
 // import PropTypes from 'prop-types'
 import { v4 } from 'uuid';
 
+
+// add Modifyer modal when item clicked
 function ItemButtons(props) {
 
   const { onItemCreation } = props;
@@ -45,6 +47,7 @@ function ItemButtons(props) {
           <button onClick={() => coffeeButtonHandler("cold coffee")}>Cold Coffee</button>
         </div>);
     };
+
   
   return (
     <React.Fragment>

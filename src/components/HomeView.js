@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactModal from "react-modal";
 
-export default function HomeView() {
+export default function HomeView(props) {
+  const { setLoggedIn, handleNewClick } = props;
   const [showModal, setShowModal] = useState(false);
   const [enteredPin, setEnteredPin] = useState([]);
   const [invalid, setInvalid] = useState(false);
@@ -33,6 +34,8 @@ export default function HomeView() {
   const handleEnter = () => {
     if (enteredPin.join("") === validPIN) {
       console.log("correct");
+      setLoggedIn(true);
+      handleNewClick();
     } else {
       console.log("incorrect");
       setInvalid(true);

@@ -6,7 +6,7 @@ function CheckClosed(props) {
 
   return (
     <React.Fragment>
-      <div className="checkOpen" onClick={() => handleDeletingCheck(props.id)}/*onClick={() => setModalIsOpen(true)}*/>
+      <div className="checkOpen" >
         <h3>Check #{props.id.substr(9, 4)}</h3>
         <h4>Open: {props.open.toString()}</h4>
         <h4>${props.totalPrice}</h4>

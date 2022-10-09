@@ -10,56 +10,15 @@ function CheckControl() {
   const [openChecksVisible, setOpenCheckVisible] = useState(false);
   const [closedChecksVisible, setClosedChecksVisible] = useState(false);
   const [selectedCheck, setSelectedCheck] = useState(null);
-  const [mainCheckList, setMainCheckList] = useState([
-    /* ??change to an object to prep for firestore?? */
-    // {
-    //   id: 1,
-    //   timeOpen: "Sun Aug 28 2022",
-    //   open: true,
-    //   totalPrice: 5,
-    //   items: [
-    //     {
-    //       drink: "coffee",
-    //       size: "medium",
-    //       price: 2,
-    //     },
-    //     {
-    //       drink: "coffee",
-    //       size: "large",
-    //       price: 3,
-    //     },
-    //   ],
-    // },
-    // {
-    //   id: 2,
-    //   timeOpen: "Sun Aug 28 2022",
-    //   open: true,
-    //   totalPrice: 6,
-    //   items: [
-    //     {
-    //       drink: "coffee",
-    //       size: "medium",
-    //       price: 2,
-    //     },
-    //     {
-    //       drink: "coffee",
-    //       size: "large",
-    //       price: 3,
-    //     },
-    //     {
-    //       drink: "coffee",
-    //       size: "small",
-    //       price: 1,
-    //     },
-    //   ],
-    // },
-  ]);
+  const [mainCheckList, setMainCheckList] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false)
 
-  const handleHomeClick = () => {
+  const handleLogoutClick = () => {
     setNewCheckVisible(false);
     setOpenCheckVisible(false);
     setClosedChecksVisible(false);
     setSelectedCheck(null);
+    setLoggedIn(false);
   };
 
   const handleNewClick = () => {
@@ -126,8 +85,6 @@ function CheckControl() {
   }
 
   let currentlyVisibleState = null;
-  // let buttonText = null;
-
   if (selectedCheck != null) {
     currentlyVisibleState = (
       <CheckDetail
@@ -155,16 +112,29 @@ function CheckControl() {
   } else if (closedChecksVisible) {
     currentlyVisibleState = <ClosedChecksList checkList={mainCheckList} handleDeletingCheck={handleDeletingCheck} />;
   } else {
-    currentlyVisibleState = <HomeView />;
+    currentlyVisibleState = <HomeView setLoggedIn={setLoggedIn} handleNewClick={handleNewClick}/>;
     // buttonText = "New Check";
+  }
+
+  let navButtons = null;
+  if (loggedIn === true) {
+    navButtons = (
+      <>
+      <button onClick={handleLogoutClick}>Log Out</button>
+      <button onClick={handleNewClick}>New Check</button>
+      <button onClick={handleListClick}>OpenChecksList</button>
+      <button onClick={handleClosedClick}>ClosedChecksList</button>
+      </>
+    )
   }
 
   return (
     <React.Fragment>
-      <button onClick={handleHomeClick}>Log Out</button>
+      {/* <button onClick={handleLogoutClick}>Log Out</button>
       <button onClick={handleNewClick}>New Check</button>
       <button onClick={handleListClick}>OpenChecksList</button>
-      <button onClick={handleClosedClick}>ClosedChecksList</button>
+      <button onClick={handleClosedClick}>ClosedChecksList</button> */}
+      {navButtons}
       {currentlyVisibleState}
     </React.Fragment>
   );

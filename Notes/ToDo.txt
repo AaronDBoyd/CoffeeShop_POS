@@ -13,6 +13,7 @@ To Do:
 - Implement firebase.
 - Implement authentication.
 
+- Create "enderedAmount" state to add another payment if not enough
 
 
 - [ x ] Build out OpenCheckDetail
