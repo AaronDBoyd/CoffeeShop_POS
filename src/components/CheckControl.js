@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HomeView from "./HomeView";
 import NewCheck from "./NewCheck";
 import OpenChecksList from "./OpenChecksList";
 import CheckDetail from "./CheckDetail";
 import ClosedChecksList from "./ClosedChecksList";
+import db from './../firebase.js'
+import {
+  collection,
+  addDoc,
+  doc,
+  updateDoc,
+  onSnapshot,
+  deleteDoc,
+} from "firebase/firestore";
 
 function CheckControl() {
   const [newCheckVisible, setNewCheckVisible] = useState(false);
@@ -12,6 +21,31 @@ function CheckControl() {
   const [selectedCheck, setSelectedCheck] = useState(null);
   const [mainCheckList, setMainCheckList] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false)
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const unSubscribe = onSnapshot(
+      collection(db, "checks"),
+      (collectionSnapshot) => {
+        const checks = [];
+        collectionSnapshot.forEach((doc) => {
+          checks.push({
+            items: doc.data().items,
+            open: doc.data().open,
+            timeOpen: doc.data().timeOpen,
+            totalPrice: doc.data().totalPrice,
+            id: doc.id,
+          });
+        });
+        setMainCheckList(checks);
+      },
+      (error) => {
+        setError(error.message);
+      }
+    );
+
+    return () => unSubscribe();
+  }, []);
 
   const handleLogoutClick = () => {
     setNewCheckVisible(false);
@@ -42,10 +76,16 @@ function CheckControl() {
     setSelectedCheck(null);
   };
 
-  const handleAddingCheckToCheckList = (newCheck) => {
-    const newMainCheckList = mainCheckList.concat(newCheck);
-    setMainCheckList(newMainCheckList);
-  };
+  const handleAddingCheckToCheckList = async (newCheckData) => {
+    const collectionRef = collection(db, "checks");
+    await addDoc(collectionRef, newCheckData);
+    // setFormVisibleOnPage(false);
+  }
+
+  // const handleAddingCheckToCheckList = (newCheck) => {
+  //   const newMainCheckList = mainCheckList.concat(newCheck);
+  //   setMainCheckList(newMainCheckList);
+  // };
 
   const handleSelectingCheck = (id) => {
     const chosenCheck = mainCheckList.filter((check) => check.id === id)[0];
@@ -62,19 +102,33 @@ function CheckControl() {
     handleListClick();
   };
 
-  const handleDeletingCheck = (checkId) => {
-    const newCheckList = mainCheckList.filter((check) => check.id !== checkId);
-    setMainCheckList(newCheckList);
-  };
+  const handleDeletingCheck = async (id) => {
+    await deleteDoc(doc(db, "checks", id));
+    handleListClick();
+  } 
 
-  const handleEditingCheckInList = (newCheck) => {
-    const oldList = mainCheckList.filter((check) => check.id !== newCheck.id);
-    const newList = oldList.concat(newCheck);
-    setMainCheckList(newList);
+  // const handleDeletingCheck = (checkId) => {
+  //   const newCheckList = mainCheckList.filter((check) => check.id !== checkId);
+  //   setMainCheckList(newCheckList);
+  // };
+
+  const handleEditingCheckInList = async (checkToEdit) => {
+    const checkRef = doc(db, "checks", checkToEdit.id);
+    await updateDoc(checkRef, checkToEdit);
+    // setEditing(false);
+    // setSelectedTicket(null);
   }
 
+  // const handleEditingCheckInList = (newCheck) => {
+  //   const oldList = mainCheckList.filter((check) => check.id !== newCheck.id);
+  //   const newList = oldList.concat(newCheck);
+  //   setMainCheckList(newList);
+  // }
+
   let currentlyVisibleState = null;
-  if (selectedCheck != null) {
+  if (error) {
+    currentlyVisibleState = <p>There was an error: {error}</p>
+  } else if (selectedCheck != null) {
     currentlyVisibleState = (
       <CheckDetail
         check={selectedCheck}

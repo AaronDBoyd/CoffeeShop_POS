@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import PropTypes from 'prop-types'
 import ItemizedCheck from "./ItemizedCheck";
 import ItemButtons from "./ItemButtons";
-import { v4 } from "uuid";
+// import { v4 } from "uuid";
 
 function NewCheck(props) {
   const { handleListClick, handleAddingCheckToCheckList } = props;
@@ -27,7 +27,7 @@ function NewCheck(props) {
   useEffect(() => {
     const time = new Date().toDateString();
     setCheck({
-      id: v4(),
+      // id: v4(),
       timeOpen: time,
       open: true,
       totalPrice: totalCost,
